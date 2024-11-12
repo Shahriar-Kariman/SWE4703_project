@@ -3,19 +3,19 @@ import numpy as np
 #define BESS Class
 class BESS():  # new class
   def __init__(self, name, initialSOH, id=-1, capacity=40, inverterMaxCharge=10, inverterMaxDischarge=10, startSoc=50, maxSoc=100, minSoc=20):
-      self.name = name
-      self.id = id
-      self.capacity = capacity  # in kWh
-      self.inverterMaxCharge = inverterMaxCharge  # in kW
-      self.inverterMaxDischarge = inverterMaxDischarge  # in kW
-      self.startSoc = startSoc  # in %
-      self.maxSoc = maxSoc  # in %
-      self.minSoc = minSoc  # in %
-      self.minEnergy = (self.minSoc / 100) * self.capacity  # in kWh
-      self.maxEnergy = (self.maxSoc / 100) * self.capacity  
-      self.currentEnergy = (self.startSoc / 100) * self.capacity  # in kW
-      self.intialSOH = initialSOH
-      self.esitmatedSOH = initialSOH
+    self.name = name
+    self.id = id
+    self.capacity = capacity  # in kWh
+    self.inverterMaxCharge = inverterMaxCharge  # in kW
+    self.inverterMaxDischarge = inverterMaxDischarge  # in kW
+    self.startSoc = startSoc  # in %
+    self.maxSoc = maxSoc  # in %
+    self.minSoc = minSoc  # in %
+    self.minEnergy = (self.minSoc / 100) * self.capacity  # in kWh
+    self.maxEnergy = (self.maxSoc / 100) * self.capacity  
+    self.currentEnergy = (self.startSoc / 100) * self.capacity  # in kW
+    self.intialSOH = initialSOH
+    self.esitmatedSOH = initialSOH
 
 
 #define functions for energy transfer
