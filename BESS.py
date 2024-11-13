@@ -2,10 +2,11 @@ import numpy as np
 
 #define BESS Class
 class BESS():  # new class
-  def __init__(self, name, initialSOH, id=-1, capacity=40, inverterMaxCharge=10, inverterMaxDischarge=10, startSoc=50, maxSoc=100, minSoc=20):
+  def __init__(self, name, initialSOH, id=-1, initialCapacity=40, inverterMaxCharge=10, inverterMaxDischarge=10, startSoc=50, maxSoc=100, minSoc=20):
       self.name = name
       self.id = id
-      self.capacity = capacity  # in kWh
+      self.initialCapacity = initialCapacity
+      self.capacity = (initialSOH/100) * self.initialCapacity  # in kWh
       self.inverterMaxCharge = inverterMaxCharge  # in kW
       self.inverterMaxDischarge = inverterMaxDischarge  # in kW
       self.startSoc = startSoc  # in %
