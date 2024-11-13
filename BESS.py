@@ -1,3 +1,5 @@
+# I am keeping this file mostly as refrence
+
 import numpy as np
 
 #define BESS Class
