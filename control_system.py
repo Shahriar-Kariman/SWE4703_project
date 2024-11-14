@@ -8,11 +8,13 @@ for i in range(32):
   b.append( battery("name_"+i, randrange(70, 80, i, 40+randrange(-4,4))) )
 
 class control_system():
-  def __init__(self, inverterMaxCharge=10, inverterMaxDischarge=10):
+  def __init__(self, inverterMaxCharge=10, inverterMaxDischarge=10, maxSoc=80, minSoc=20):
     self.cluster = cluster(32)
     map(self.cluster.add_battery, b)
     self.inverterMaxCharge = inverterMaxCharge  # in kW
     self.inverterMaxDischarge = inverterMaxDischarge  # in kW
+    self.maxSoc = maxSoc  # in %
+    self.minSoc = minSoc  # in %
   
   def determineEnergyTransfer(self, deltaT, decision, bat):
     #initialize working variables
