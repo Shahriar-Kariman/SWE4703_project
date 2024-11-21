@@ -9,7 +9,7 @@ class cluster_shawn():
   def add_battery(self, b):
     if self.max_num_batteries <= self.num_batteries:
       return
-    self.battereis.append(b)
+    self.batteries.append(b)
     self.num_batteries += 1
 
   # Removing a battery to the cluster
