@@ -19,3 +19,13 @@ class cluster_shawn():
     self.batteries.remove(b)
     self.num_batteries -= 1
   
+  def share_load(self, delta_energy, deltaT):
+    # Essentially a greedy algorithm to just pick the batteries with the healtist batteries with the most amount of charge
+    sorted_batteries = sorted(self.batteries, key=lambda b: (b.esitmatedSOH, b.currentSOC), reverse=True)
+    decision = "charge" if delta_energy>0 else "discharge"
+    remaining_energy = abs(delta_energy)
+    for battery in sorted_batteries:
+      result = battery.transfer_energy(deltaT, decision)
+      remaining_energy -= result['energy_transfer']
+      if remaining_energy<=0:
+        break

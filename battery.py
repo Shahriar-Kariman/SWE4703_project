@@ -5,10 +5,10 @@ class battery():
         self.id = id
         self.originalCapacity = capacity
         self.capacity = capacity * initialSOH # in kWh
-        self.startSoc = startSoc  # in %
+        self.currentSOC = startSoc  # in %
         self.initialSOH = initialSOH
         self.esitmatedSOH = initialSOH
-        self.currentEnergy = (self.startSoc / 100) * self.capacity  # in kW
+        self.currentEnergy = (self.currentSOC / 100) * self.capacity  # in kW
         self.profit1 = 0
         self.profit2 = 0
         self.profit3 = 0
@@ -17,12 +17,39 @@ class battery():
         # will need to research to find the correct constants for the 2 bellow
         self.cycle_deg_rate = 0.0005  # Degradation per full charge/discharge cycle
         self.cal_deg_rate = 0.00001  # Time-based degradation per hour
+        # I might add depth of discharge degredation later
 
     def getBatteryInfo(self):
         return [self.name, self.id, self.originalCapacity, self.initialSOH]
 
-    # Charges the battery for a set amount of time
-    def charge_battery(self, deltaT, decision): # deltaT unit is hours
+    # Charges or discharges the battery for a set amount of time
+    def transfer_energy(self, deltaT, decision): # deltaT unit is hours
+        # Update the SOH and capacity based on degredation
+        # cycle based degredation
+        powerTransfer = self.calc_possible_powerTransfer(deltaT, decision)
+        energy_transfer = abs(powerTransfer)
+        num_cycles = energy_transfer/self.originalCapacity
+        cycle_deg = self.cycle_deg_rate * num_cycles
+        # calender based degredation
+        cal_deg = self.cal_deg_rate * deltaT
+        degredation = cycle_deg + cal_deg
+        self.esitmatedSOH = max(0, self.esitmatedSOH - degredation)
+
+        # it is critical that these are updated especially SOH and currentSOC
+        self.capacity = self.originalCapacity * self.esitmatedSOH
+        self.maxEnergy = self.capacity
+        self.currentSOC = self.currentEnergy/self.maxEnergy
+
+        # returning a summery of what just happened
+        # I dont really need to return anything though
+        return {
+            "decision": decision,
+            "energy_transfer": energy_transfer,
+            "end_energy": self.currentEnergy,
+            "degredation": degredation,
+        }
+    
+    def calc_possible_powerTransfer(self, deltaT, decision):
         proposedCurrentEnergy = 0
         powerTransfer = 0
         startEnergy = self.currentEnergy
@@ -40,27 +67,4 @@ class battery():
 
         else:
             powerTransfer = 0
-        
-        # Update the SOH and capacity based on degredation
-        # cycle based degredation
-        energy_transfer = abs(powerTransfer)
-        num_cycles = energy_transfer/self.originalCapacity
-        cycle_deg = self.cycle_deg_rate * num_cycles
-        # calender based degredation
-        cal_deg = self.cal_deg_rate * deltaT
-        degredation = cycle_deg + cal_deg
-        self.esitmatedSOH = max(0, self.esitmatedSOH - degredation)
-
-        # update capacity
-        self.capacity = self.originalCapacity * self.esitmatedSOH
-        self.maxEnergy = self.capacity
-
-        # returning a summery of what just happened
-        # I dont really need to return anything though
-        return {
-            "decision": decision,
-            "energy_transper": energy_transfer,
-            "start_energy": startEnergy,
-            "end_energy": self.currentEnergy,
-            "degredation": degredation,
-        }
+        return powerTransfer
