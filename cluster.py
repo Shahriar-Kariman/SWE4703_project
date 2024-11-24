@@ -14,18 +14,21 @@ class cluster_shawn():
 
   # Removing a battery from the cluster
   def remove_battery(self, b):
-    if self.num_batteries == 0:
-      return
-    self.batteries.remove(b)
-    self.num_batteries -= 1
+    if b in self.batteries:
+      self.batteries.remove(b)
+      self.num_batteries -= 1
   
   def share_load(self, delta_energy, deltaT):
-    # Essentially a greedy algorithm to just pick the batteries with the healtist batteries with the most amount of charge
+    # Essentially a greedy algorithm to just pick the batteries with the healthist batteries with the most amount of charge
     sorted_batteries = sorted(self.batteries, key=lambda b: (b.esitmatedSOH, b.currentSOC), reverse=True)
     decision = "charge" if delta_energy>0 else "discharge"
     remaining_energy = abs(delta_energy)
     for battery in sorted_batteries:
-      result = battery.transfer_energy(deltaT, decision)
-      remaining_energy -= result['energy_transfer']
-      if remaining_energy<=0:
-        break
+      # making sure the energy tranfer from the battery does not exceed the remaining energy
+      if not battery.can_transfer(remaining_energy, deltaT, decision):
+        result = battery.transfer_energy(deltaT, decision)
+        remaining_energy -= result['energy_transfer']
+      else:
+        degredation = battery.calender_degredation(deltaT)
+        battery.apply_deg(degredation)
+  
