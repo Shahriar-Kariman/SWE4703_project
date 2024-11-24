@@ -12,9 +12,10 @@ class cluster_shawn():
     self.batteries.append(b)
     self.num_batteries += 1
 
-  # Removing a battery to the cluster
-  def remove_battery_at(self, b):
+  # Removing a battery from the cluster
+  def remove_battery(self, b):
     if self.num_batteries == 0:
       return
     self.batteries.remove(b)
     self.num_batteries -= 1
+  
