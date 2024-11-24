@@ -9,6 +9,7 @@ class battery():
         self.initialSOH = initialSOH
         self.esitmatedSOH = initialSOH
         self.currentEnergy = (self.currentSOC / 100) * self.capacity  # in kW
+        self.individualContribution = 0  # in kW
         self.profit1 = 0
         self.profit2 = 0
         self.profit3 = 0
@@ -27,6 +28,8 @@ class battery():
     # Charges or discharges the battery for a set amount of time
     def transfer_energy(self, deltaT, decision): # deltaT unit is hours
         powerTransfer = self.calc_possible_powerTransfer(deltaT, decision)
+        if decision == "discharge":
+            self.individualContribution += powerTransfer
         energy_transfer = abs(powerTransfer)
         # Update the SOH and capacity based on degredation
         cycle_deg = self.cycle_degredation(deltaT, energy_transfer)

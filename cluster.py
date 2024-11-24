@@ -1,5 +1,5 @@
 
-class cluster_shawn():
+class cluster():
   def __init__(self, max_num_batteries):
     self.batteries = []
     self.num_batteries = 0
