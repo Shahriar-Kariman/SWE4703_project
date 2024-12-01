@@ -18,8 +18,9 @@ class battery():
         self.inverterMaxCharge = inverterMaxCharge  # in kW
         self.inverterMaxDischarge = inverterMaxDischarge  # in kW
         # will need to research to find the correct constants for the 2 bellow
-        self.cycle_deg_rate = 0.0005  # Degradation per full charge/discharge cycle
-        self.cal_deg_rate = 0.00001  # Time-based degradation per hour
+        self.cycle_deg_rate = 4.6/1000  # Degradation per full charge/discharge cycle
+        # assuming annual capacity degradation (2%)
+        self.cal_deg_rate =  (0.5/100)/(365*24)  # Time-based degradation per hour
         # I might add depth of discharge degredation later
 
     def getBatteryInfo(self):
@@ -27,12 +28,14 @@ class battery():
 
     # Charges or discharges the battery for a set amount of time
     def transfer_energy(self, deltaT, decision): # deltaT unit is hours
-        powerTransfer = self.calc_possible_powerTransfer(deltaT, decision)
+        [powerTransfer, new_currentEnergy] = self.calc_possible_powerTransfer(deltaT, decision)
+        prev_energy = self.currentEnergy
+        self.currentEnergy = new_currentEnergy
         if decision == "discharge":
             self.individualContribution += powerTransfer
         energy_transfer = abs(powerTransfer)
         # Update the SOH and capacity based on degredation
-        cycle_deg = self.cycle_degredation(deltaT, energy_transfer)
+        cycle_deg = self.cycle_degredation(deltaT, energy_transfer, prev_energy)
         cal_deg = self.calender_degredation(deltaT)
         degredation = cycle_deg + cal_deg
         self.apply_deg(degredation)
@@ -52,26 +55,26 @@ class battery():
         if decision == "charge":
             # Get current proposed contribution by multiplying power of inverter by deltaT to get the energy contribution, add to current capacity
             proposedCurrentEnergy = (self.inverterMaxCharge * deltaT) + self.currentEnergy
-            self.currentEnergy = min(self.maxEnergy, proposedCurrentEnergy) # Check for max. capacity of battery
-            powerTransfer = self.currentEnergy - startEnergy
+            new_currentEnergy = min(self.maxEnergy, proposedCurrentEnergy) # Check for max. capacity of battery
+            powerTransfer = new_currentEnergy - startEnergy
         elif decision == "discharge":
             # Get current proposed contribution by multiplying power of inverter by deltaT to get the energy contribution, add to current capacity
             proposedCurrentEnergy = -1 * (self.inverterMaxDischarge * deltaT) + self.currentEnergy
-            self.currentEnergy = max(self.minEnergy, proposedCurrentEnergy) # Check for min. capacity of battery
-            powerTransfer = (startEnergy - self.currentEnergy) * -1
+            new_currentEnergy = max(self.minEnergy, proposedCurrentEnergy) # Check for min. capacity of battery
+            powerTransfer = (startEnergy - new_currentEnergy) * -1
         else:
             powerTransfer = 0
-        return powerTransfer
+        return [powerTransfer, new_currentEnergy]
 
     def can_transfer(self, energy, deltaT, decision):
-        capability = self.calc_possible_powerTransfer(deltaT, decision)
-        if energy <= capability:
+        [possible_transfer, new_currentEnergy] = self.calc_possible_powerTransfer(deltaT, decision)
+        if energy <= possible_transfer:
             return True
         return False
     
     # cycle based degredation approximation
-    def cycle_degredation(self, energy_transfer):
-        num_cycles = energy_transfer/self.originalCapacity
+    def cycle_degredation(self, energy_transfer, prev_energy):
+        num_cycles = energy_transfer/prev_energy
         cycle_deg = self.cycle_deg_rate * num_cycles
         return cycle_deg
 
