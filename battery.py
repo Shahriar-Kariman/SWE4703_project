@@ -35,7 +35,7 @@ class battery():
             self.individualContribution += powerTransfer
         energy_transfer = abs(powerTransfer)
         # Update the SOH and capacity based on degredation
-        cycle_deg = self.cycle_degredation(deltaT, energy_transfer, prev_energy)
+        cycle_deg = self.cycle_degredation(energy_transfer, prev_energy)
         cal_deg = self.calender_degredation(deltaT)
         degredation = cycle_deg + cal_deg
         self.apply_deg(degredation)
@@ -73,6 +73,7 @@ class battery():
         return False
     
     # cycle based degredation approximation
+    # I am kind of ignoring depth of discharge here for simplicity
     def cycle_degredation(self, energy_transfer, prev_energy):
         num_cycles = energy_transfer/prev_energy
         cycle_deg = self.cycle_deg_rate * num_cycles
