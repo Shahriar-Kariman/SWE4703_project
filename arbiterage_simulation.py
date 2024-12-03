@@ -37,7 +37,7 @@ winter_day_rate = [OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, O
 def simulate_day(day):
   for i in range(24):
     d = make_decision(day[i])
-    main_cluster.share_load(d["decision"], d["amount"], 1)
+    main_cluster.share_load(d["decision"], d["amount"], 1, day[i])
 
 def simulate_summer():
   # summer is 184 days
@@ -72,3 +72,6 @@ def make_decision(rate):
   return {"decision": decision, "amount": energy_amount}
 
 simulate_year()
+
+for b in main_cluster.batteries:
+  print(b.profit1)

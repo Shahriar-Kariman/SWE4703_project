@@ -94,3 +94,7 @@ class battery():
         self.minEnergy = self.capacity * 0.2
         self.currentSOC = (self.currentEnergy/self.capacity) * 100
     
+    def add_profit_1(self, rate, decision, energy, deltaT):
+        a = 1 if decision=="discharge" else -1
+        profit = (a*rate*energy/deltaT)/100 # dollar
+        self.profit1 += profit
