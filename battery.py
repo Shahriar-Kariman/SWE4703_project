@@ -63,6 +63,7 @@ class battery():
             new_currentEnergy = max(self.minEnergy, proposedCurrentEnergy) # Check for min. capacity of battery
             powerTransfer = (startEnergy - new_currentEnergy) * -1
         else:
+            new_currentEnergy = self.currentEnergy
             powerTransfer = 0
         return [powerTransfer, new_currentEnergy]
 
@@ -86,7 +87,7 @@ class battery():
     
     def apply_deg(self, degredation):
         # it is critical that these are updated especially SOH and currentSOC
-        self.esitmatedSOH = max(0, self.esitmatedSOH - degredation)
+        self.esitmatedSOH = max(0.01, self.esitmatedSOH - degredation)
         self.capacity = self.originalCapacity * self.esitmatedSOH
         # between 85% to 20%
         self.maxEnergy = self.capacity * 0.85
