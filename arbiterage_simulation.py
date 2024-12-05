@@ -21,6 +21,9 @@ for i in range(32):
   main_cluster.add_battery(b1)
   battries.append(b2)
 
+for b in battries:
+  print(b.esitmatedSOH)
+
 stats = StatisticsCluster(main_cluster)
 # plot = Plots(stats)
 
@@ -33,21 +36,25 @@ winter_day_rate = [OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, O
 
 # Look at Ontario website for number of events
 # 2 $ per kWh
+# event is 5 hours
 
 def simulate_day(day):
   for i in range(24):
     d = make_decision(day[i])
     main_cluster.share_load(d["decision"], d["amount"], 1, day[i])
+  
 
 def simulate_summer():
   # summer is 184 days
   for i in range(184):
     simulate_day(summer_day_rates)
+  
 
 def simulate_winter():
   # winter is 182 days
   for i in range(181):
     simulate_day(winter_day_rate)
+  
 
 def simulate_year():
   simulate_summer()
@@ -58,18 +65,18 @@ def make_decision(rate):
   energy_amount = 0 # kW
   if rate == ON_PEAK:
     decision = "discharge"
-    energy_amount = 20
+    # energy_amount = 12
   elif rate == OFF_PEAK:
     decision = "charge"
-    energy_amount = 20
+    # energy_amount = 12
   else:
     if main_cluster.total_SOC<50:
       decision = "charge"
-      energy_amount = 10
+      # energy_amount = 7
     elif main_cluster.total_SOC>60:
       decision = "discharge"
-      energy_amount = 10
-  return {"decision": decision, "amount": energy_amount}
+      # energy_amount = 7
+  return {"decision": decision, "amount": 10}
 
 simulate_year()
 
@@ -78,5 +85,5 @@ total_profit2 = 0
 for b in main_cluster.batteries:
   total_profit1 += b.profit1
   total_profit2 += b.profit2
-  print("profit 1", b.profit1, "profit 2", b.profit2)
+  print("profit 1", b.profit1, "profit 2", b.profit2, "state of health", b.esitmatedSOH)
 print("total profit 1", total_profit1, "total profit 2", total_profit2)

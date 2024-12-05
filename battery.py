@@ -52,12 +52,12 @@ class battery():
         proposedCurrentEnergy = 0
         powerTransfer = 0
         startEnergy = self.currentEnergy
-        if decision == "charge":
+        if decision == "charge" and self.currentSOC<=85:
             # Get current proposed contribution by multiplying power of inverter by deltaT to get the energy contribution, add to current capacity
             proposedCurrentEnergy = (self.inverterMaxCharge * deltaT) + self.currentEnergy
             new_currentEnergy = min(self.maxEnergy, proposedCurrentEnergy) # Check for max. capacity of battery
             powerTransfer = new_currentEnergy - startEnergy
-        elif decision == "discharge":
+        elif decision == "discharge" and self.currentSOC>=20:
             # Get current proposed contribution by multiplying power of inverter by deltaT to get the energy contribution, add to current capacity
             proposedCurrentEnergy = -1 * (self.inverterMaxDischarge * deltaT) + self.currentEnergy
             new_currentEnergy = max(self.minEnergy, proposedCurrentEnergy) # Check for min. capacity of battery
@@ -76,7 +76,7 @@ class battery():
     # cycle based degredation approximation
     # I am kind of ignoring depth of discharge here for simplicity
     def cycle_degredation(self, energy_transfer, prev_energy):
-        num_cycles = energy_transfer/prev_energy
+        num_cycles = energy_transfer/self.capacity
         cycle_deg = self.cycle_deg_rate * num_cycles
         return cycle_deg
 
@@ -88,11 +88,11 @@ class battery():
     def apply_deg(self, degredation):
         # it is critical that these are updated especially SOH and currentSOC
         self.esitmatedSOH = max(0.01, self.esitmatedSOH - degredation)
+        self.currentSOC = (self.currentEnergy/self.capacity) * 100
         self.capacity = self.originalCapacity * self.esitmatedSOH
         # between 85% to 20%
         self.maxEnergy = self.capacity * 0.85
         self.minEnergy = self.capacity * 0.2
-        self.currentSOC = (self.currentEnergy/self.capacity) * 100
     
     def add_profit_1(self, rate, decision, energy, deltaT):
         a = 1 if decision=="discharge" else -1

@@ -36,7 +36,7 @@ class cluster():
     for battery in sorted_batteries:
       total_cluster_capacity += battery.capacity
       # making sure the energy tranfer from the battery does not exceed the remaining energy
-      if not battery.can_transfer(remaining_energy, deltaT, decision):
+      if remaining_energy>0:
         result = battery.transfer_energy(deltaT, decision)
         a = 1 if result["decision"]=="discharge" else -1
         total_energy_transfer += a * result["energy_transfer"]
