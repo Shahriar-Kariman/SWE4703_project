@@ -26,17 +26,20 @@ class cluster():
   
   def share_load(self, decision, delta_energy, deltaT, rate):
     # Essentially a greedy algorithm to just pick the batteries with the healthist batteries with the most amount of charge
-    sorted_batteries = sorted(self.batteries, key=lambda b: (b.esitmatedSOH, b.currentSOC), reverse=True)
+    if decision == "discharge":
+      sorted_batteries = sorted(self.batteries, key=lambda b: (b.esitmatedSOH, b.currentSOC), reverse=True)
+    else:
+      sorted_batteries = sorted(self.batteries, key=lambda b: (b.esitmatedSOH, -1 * b.currentSOC), reverse=True)
     remaining_energy = abs(delta_energy)
     total_energy_transfer = 0
     total_cluster_capacity = 0
     for battery in sorted_batteries:
+      total_cluster_capacity += battery.capacity
       # making sure the energy tranfer from the battery does not exceed the remaining energy
       if not battery.can_transfer(remaining_energy, deltaT, decision):
         result = battery.transfer_energy(deltaT, decision)
         a = 1 if result["decision"]=="discharge" else -1
         total_energy_transfer += a * result["energy_transfer"]
-        total_cluster_capacity += battery.capacity
         battery.add_profit_1(rate, result["decision"], result["energy_transfer"], deltaT)
         remaining_energy -= result["energy_transfer"]
       else:

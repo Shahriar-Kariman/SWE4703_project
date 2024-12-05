@@ -100,5 +100,5 @@ class battery():
         self.profit1 += profit
 
     def add_profit_2(self, total_profit, total_cluster_capacity):
-        profit2 = total_profit * (self.capacity/total_cluster_capacity) # dollar
+        profit2 = total_profit * (self.capacity/total_cluster_capacity)/100 # dollar
         self.profit2 += profit2

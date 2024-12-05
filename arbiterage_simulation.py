@@ -32,7 +32,7 @@ summer_day_rates = [OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, 
 winter_day_rate = [OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, ON_PEAK, ON_PEAK, ON_PEAK, ON_PEAK, MID_PEAK, MID_PEAK, MID_PEAK, MID_PEAK, MID_PEAK, MID_PEAK, ON_PEAK, ON_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, 7.6]
 
 # Look at Ontario website for number of events
-# 1.1 $ per kWh
+# 2 $ per kWh
 
 def simulate_day(day):
   for i in range(24):
@@ -73,5 +73,10 @@ def make_decision(rate):
 
 simulate_year()
 
+total_profit1 = 0
+total_profit2 = 0
 for b in main_cluster.batteries:
-  print(b.profit1)
+  total_profit1 += b.profit1
+  total_profit2 += b.profit2
+  print("profit 1", b.profit1, "profit 2", b.profit2)
+print("total profit 1", total_profit1, "total profit 2", total_profit2)
