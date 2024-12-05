@@ -98,3 +98,7 @@ class battery():
         a = 1 if decision=="discharge" else -1
         profit = (a*rate*energy/deltaT)/100 # dollar
         self.profit1 += profit
+
+    def add_profit_2(self, total_profit, total_cluster_capacity):
+        profit2 = total_profit * (self.capacity/total_cluster_capacity) # dollar
+        self.profit2 += profit2

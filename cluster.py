@@ -28,15 +28,25 @@ class cluster():
     # Essentially a greedy algorithm to just pick the batteries with the healthist batteries with the most amount of charge
     sorted_batteries = sorted(self.batteries, key=lambda b: (b.esitmatedSOH, b.currentSOC), reverse=True)
     remaining_energy = abs(delta_energy)
+    total_energy_transfer = 0
+    total_cluster_capacity = 0
     for battery in sorted_batteries:
       # making sure the energy tranfer from the battery does not exceed the remaining energy
       if not battery.can_transfer(remaining_energy, deltaT, decision):
         result = battery.transfer_energy(deltaT, decision)
+        a = 1 if result["decision"]=="discharge" else -1
+        total_energy_transfer += a * result["energy_transfer"]
+        total_cluster_capacity += battery.capacity
         battery.add_profit_1(rate, result["decision"], result["energy_transfer"], deltaT)
         remaining_energy -= result["energy_transfer"]
       else:
         degredation = battery.calender_degredation(deltaT)
         battery.apply_deg(degredation)
+    
+    total_profit = total_energy_transfer * rate
+    for battery in sorted_batteries:
+      battery.add_profit_2(total_profit, total_cluster_capacity)
+
     self.update_SOC()
   
   def update_SOC(self):
