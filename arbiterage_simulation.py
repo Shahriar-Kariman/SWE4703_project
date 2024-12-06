@@ -76,7 +76,7 @@ def make_decision(rate):
     elif main_cluster.total_SOC>60:
       decision = "discharge"
       # energy_amount = 7
-  return {"decision": decision, "amount": 10}
+  return {"decision": decision, "amount": 40}
 
 simulate_year()
 

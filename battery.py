@@ -87,7 +87,9 @@ class battery():
     
     def apply_deg(self, degredation):
         # it is critical that these are updated especially SOH and currentSOC
-        self.esitmatedSOH = max(0.01, self.esitmatedSOH - degredation)
+        self.capacity = self.capacity - degredation
+        self.esitmatedSOH = self.capacity/self.originalCapacity
+        print("esitmatedSOH", self.esitmatedSOH)
         self.currentSOC = (self.currentEnergy/self.capacity) * 100
         self.capacity = self.originalCapacity * self.esitmatedSOH
         # between 85% to 20%
