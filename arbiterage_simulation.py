@@ -48,7 +48,7 @@ def simulate_summer():
   # summer is 184 days
   for i in range(184):
     simulate_day(summer_day_rates)
-  
+
 
 def simulate_winter():
   # winter is 182 days
