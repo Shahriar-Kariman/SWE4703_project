@@ -9,7 +9,6 @@ class battery():
         self.initialSOH = initialSOH
         self.esitmatedSOH = initialSOH
         self.currentEnergy = (self.currentSOC / 100) * self.capacity  # in kW
-        self.individualContribution = 0  # in kW
         self.profit1 = 0
         self.profit2 = 0
         self.profit3 = 0
@@ -29,13 +28,10 @@ class battery():
     # Charges or discharges the battery for a set amount of time
     def transfer_energy(self, deltaT, decision): # deltaT unit is hours
         [powerTransfer, new_currentEnergy] = self.calc_possible_powerTransfer(deltaT, decision)
-        prev_energy = self.currentEnergy
         self.currentEnergy = new_currentEnergy
-        if decision == "discharge":
-            self.individualContribution += powerTransfer
         energy_transfer = abs(powerTransfer)
         # Update the SOH and capacity based on degredation
-        cycle_deg = self.cycle_degredation(energy_transfer, prev_energy)
+        cycle_deg = self.cycle_degredation(energy_transfer)
         cal_deg = self.calender_degredation(deltaT)
         degredation = cycle_deg + cal_deg
         self.apply_deg(degredation)
@@ -75,10 +71,10 @@ class battery():
     
     # cycle based degredation approximation
     # I am kind of ignoring depth of discharge here for simplicity
-    def cycle_degredation(self, energy_transfer, prev_energy):
+    def cycle_degredation(self, energy_transfer):
         num_cycles = energy_transfer/self.capacity
         cycle_deg = self.cycle_deg_rate * num_cycles
-        return cycle_deg
+        return abs(cycle_deg)
 
     # calender based degredation approximation
     def calender_degredation(self, deltaT):
