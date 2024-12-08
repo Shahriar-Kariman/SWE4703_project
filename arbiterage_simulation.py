@@ -73,26 +73,23 @@ def make_decision(rate):
   if rate == ON_PEAK:
     decision = "discharge"
     if main_cluster.total_SOC>80:
-      energy_amount = 140
+      energy_amount = 100
     elif main_cluster.total_SOC>70:
-      energy_amount = 120
-    else:
       energy_amount = 90
+    else:
+      energy_amount = 80
   elif rate == OFF_PEAK:
     decision = "charge"
     if main_cluster.total_SOC<25:
-      energy_amount = 140
-    if main_cluster.total_SOC<30:
-      energy_amount = 120
-    else:
+      energy_amount = 100
+    if main_cluster.total_SOC<50:
       energy_amount = 90
+    else:
+      energy_amount = 80
   else:
-    if main_cluster.total_SOC<30:
-      decision = "charge"
-      energy_amount = 30
-    elif main_cluster.total_SOC>50:
+    if main_cluster.total_SOC>50:
       decision = "discharge"
-      energy_amount = 30
+      energy_amount = 40
   return {"decision": decision, "amount": energy_amount}
 
 simulate_year()
