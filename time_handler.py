@@ -1,8 +1,9 @@
 from datetime import datetime, timedelta
 
-class time_handler:
+class time_handler():
   def __init__(self):
-    self.current_date = datetime(2024, 1, 1)
+    # starting at May 1st cause thats when summer starts
+    self.current_date = datetime(2024, 5, 1)
   
   def get_season(self):
     year = self.current_date.year

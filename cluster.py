@@ -59,3 +59,9 @@ class cluster():
       self.total_capacity += b.capacity
       self.total_energy += b.currentEnergy
     self.total_SOC = self.total_energy/self.total_capacity * 100
+  
+  def weekend_calender_deg(self, days):
+    for battery in self.batteries:
+      # 24 hours in a day
+      degredation = battery.calender_degredation(24*days)
+      battery.apply_deg(degredation)

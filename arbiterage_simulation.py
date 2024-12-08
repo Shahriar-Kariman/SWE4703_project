@@ -2,6 +2,7 @@ from cluster import cluster
 from battery import battery
 import random
 from statisticsCluster import StatisticsCluster
+from time_handler import time_handler
 # from plots import Plots
 
 # Initialize the main cluster with a maximum of 32 batteries
@@ -34,24 +35,30 @@ MID_PEAK = 12.2
 summer_day_rates = [OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, MID_PEAK, MID_PEAK, MID_PEAK, MID_PEAK, ON_PEAK, ON_PEAK, ON_PEAK, ON_PEAK, ON_PEAK, ON_PEAK, MID_PEAK, MID_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, 7.6]
 winter_day_rate = [OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, ON_PEAK, ON_PEAK, ON_PEAK, ON_PEAK, MID_PEAK, MID_PEAK, MID_PEAK, MID_PEAK, MID_PEAK, MID_PEAK, ON_PEAK, ON_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, OFF_PEAK, 7.6]
 
+time = time_handler()
+
 # Look at Ontario website for number of events
 # 2 $ per kWh
 # event is 5 hours
 
 def simulate_day(day):
   for i in range(24):
-    d = make_decision(day[i])
-    main_cluster.share_load(d["decision"], d["amount"], 1, day[i])
+    if not time.is_weekend():
+      d = make_decision(day[i])
+      main_cluster.share_load(d["decision"], d["amount"], 1, day[i])
+    else:
+      main_cluster.weekend_calender_deg(1)
+    time.end_day()
   
 
 def simulate_summer():
-  # summer is 184 days
+  # summer is 184 days (May 1st to Oct 31st)
   for i in range(184):
     simulate_day(summer_day_rates)
 
 
 def simulate_winter():
-  # winter is 182 days
+  # winter is 182 days (Nov 1st to April 30th)
   for i in range(181):
     simulate_day(winter_day_rate)
   
@@ -65,18 +72,28 @@ def make_decision(rate):
   energy_amount = 0 # kW
   if rate == ON_PEAK:
     decision = "discharge"
-    # energy_amount = 12
+    if main_cluster.total_SOC>80:
+      energy_amount = 140
+    elif main_cluster.total_SOC>70:
+      energy_amount = 120
+    else:
+      energy_amount = 90
   elif rate == OFF_PEAK:
     decision = "charge"
-    # energy_amount = 12
+    if main_cluster.total_SOC<25:
+      energy_amount = 140
+    if main_cluster.total_SOC<30:
+      energy_amount = 120
+    else:
+      energy_amount = 90
   else:
-    if main_cluster.total_SOC<50:
+    if main_cluster.total_SOC<30:
       decision = "charge"
-      # energy_amount = 7
-    elif main_cluster.total_SOC>60:
+      energy_amount = 30
+    elif main_cluster.total_SOC>50:
       decision = "discharge"
-      # energy_amount = 7
-  return {"decision": decision, "amount": 40}
+      energy_amount = 30
+  return {"decision": decision, "amount": energy_amount}
 
 simulate_year()
 
