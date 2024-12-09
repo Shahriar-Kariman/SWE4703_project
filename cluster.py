@@ -25,6 +25,11 @@ class cluster():
       self.num_batteries -= 1
   
   def share_load(self, decision, delta_energy, deltaT, rate):
+    if decision == "idle":
+      for battery in self.batteries:
+        degredation = battery.calender_degredation(deltaT)
+        battery.apply_deg(degredation)
+      return
     # Essentially a greedy algorithm to just pick the batteries with the healthist batteries with the most amount of charge
     if decision == "discharge":
       sorted_batteries = sorted(self.batteries, key=lambda b: (b.esitmatedSOH, b.currentSOC), reverse=True)

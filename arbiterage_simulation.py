@@ -47,6 +47,7 @@ def simulate_day(day):
       d = make_decision(day[i])
       main_cluster.share_load(d["decision"], d["amount"], 1, day[i])
     else:
+      # TODO: weekend is OFF_PEAK all day so charge
       main_cluster.weekend_calender_deg(1)
     time.end_day()
   
