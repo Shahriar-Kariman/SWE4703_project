@@ -44,10 +44,9 @@ time = time_handler()
 def simulate_day(day):
   for i in range(24):
     if not time.is_weekend():
-      d = make_decision(day[i])
+      d = make_decision(day[i], main_cluster)
       main_cluster.share_load(d["decision"], d["amount"], 1, day[i])
     else:
-      # TODO: weekend is OFF_PEAK all day so charge
       main_cluster.weekend_calender_deg(1)
     time.end_day()
   
@@ -68,7 +67,7 @@ def simulate_year():
   simulate_summer()
   simulate_winter()
 
-def make_decision(rate):
+def make_decision(rate, main_cluster):
   decision = "idle"
   energy_amount = 0 # kW
   if rate == ON_PEAK:
@@ -83,7 +82,7 @@ def make_decision(rate):
     decision = "charge"
     if main_cluster.total_SOC<25:
       energy_amount = 100
-    if main_cluster.total_SOC<50:
+    elif main_cluster.total_SOC<50:
       energy_amount = 90
     else:
       energy_amount = 80
