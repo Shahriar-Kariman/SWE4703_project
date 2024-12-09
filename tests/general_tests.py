@@ -1,4 +1,6 @@
 from battery import battery
+from cluster import cluster
+from math import isclose
 
 # ----------------------- single battery tests -----------------------
 
@@ -71,4 +73,19 @@ def test_2_battery():
 # ----------------------- cluster tests -----------------------
 
 def test_1_cluster():
-  pass
+  # I am only putting 3 clusters for this one
+  c = cluster(3)
+  for i in range(3):
+    name = f"Battery_{i+1}"
+    initialSOH = 1
+    battery_id = i
+    capacity = 40
+    startSoc = 100
+    b = battery(name, initialSOH, battery_id, capacity, startSoc)
+    c.add_battery(b)
+  c.share_load("discharge", 30, 1, 1)
+  # I dont really want to calculate the exact degredation by hand
+  # so for this test I will just approximate
+  assert isclose(c.total_capacity,40*3,rel_tol=1e-2)
+  assert isclose(c.total_energy,30*3,rel_tol=1e-2)
+  assert isclose(c.total_SOC,75,rel_tol=1e-2)
