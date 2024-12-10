@@ -1,12 +1,12 @@
 from cluster import cluster
-from dash import Dash, dcc, html
+# from dash import Dash, dcc, html
 from battery import battery
 import random
 from statisticsCluster import StatisticsCluster
 from time_handler import time_handler
-from plots import Plots
+# from plots import Plots
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+# external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 
 
@@ -162,41 +162,41 @@ for b in battries:
   print("profit 3", b.profit3, "state of health", b.esitmatedSOH)
 print("total profit 3", total_profit3)
 
-batteries = main_cluster.batteries
-plots = Plots(stats).getPlots()
+# batteries = main_cluster.batteries
+# plots = Plots(stats).getPlots()
 
-app = Dash(__name__, external_stylesheets=external_stylesheets)
-app.layout = html.Div([
-    dcc.Tabs([
-        dcc.Tab(
-            label=batteries[i].name,
-            children=[
-                html.Div(
-                    dcc.Graph(
-                        id=f'plot-{i}-{j}',  # Unique ID for each graph
-                        figure=plots[i][j].figure,  # Ensure plots[i][j] is a valid Graph component
-                        style={'width': '1500px', 'height': '1000px'}  # Increased size for square graphs
-                    )
-                ) for j in range(len(plots[i]))  # Iterate over the graphs in plots[i]
-            ]
-        ) for i in range(len(batteries))
-    ] + [
-        dcc.Tab(
-            label="Summary",
-            children=[
-                html.Div(
-                    dcc.Graph(
-                        id=f'summary-plot-{j}',  # Unique ID for each graph in summary
-                        figure=plots[32][j].figure,  # Ensure plots[32][j] is a valid Graph component
-                        style={'width': '1500px', 'height': '1000px'}  # Increased size for square graphs
-                    )
-                ) for j in range(len(plots[32]))  # Iterate over the graphs in plots[32]
-            ]
-        )
-    ])
-])
+# app = Dash(__name__, external_stylesheets=external_stylesheets)
+# app.layout = html.Div([
+#     dcc.Tabs([
+#         dcc.Tab(
+#             label=batteries[i].name,
+#             children=[
+#                 html.Div(
+#                     dcc.Graph(
+#                         id=f'plot-{i}-{j}',  # Unique ID for each graph
+#                         figure=plots[i][j].figure,  # Ensure plots[i][j] is a valid Graph component
+#                         style={'width': '1500px', 'height': '1000px'}  # Increased size for square graphs
+#                     )
+#                 ) for j in range(len(plots[i]))  # Iterate over the graphs in plots[i]
+#             ]
+#         ) for i in range(len(batteries))
+#     ] + [
+#         dcc.Tab(
+#             label="Summary",
+#             children=[
+#                 html.Div(
+#                     dcc.Graph(
+#                         id=f'summary-plot-{j}',  # Unique ID for each graph in summary
+#                         figure=plots[32][j].figure,  # Ensure plots[32][j] is a valid Graph component
+#                         style={'width': '1500px', 'height': '1000px'}  # Increased size for square graphs
+#                     )
+#                 ) for j in range(len(plots[32]))  # Iterate over the graphs in plots[32]
+#             ]
+#         )
+#     ])
+# ])
 
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
