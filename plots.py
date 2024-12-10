@@ -1,6 +1,7 @@
 from dash import dcc
 import plotly.graph_objects as go
 import plotly.express as px
+import pandas as pd
 
 class Plots:
     def __init__(self, statistics):
@@ -27,14 +28,21 @@ class Plots:
             SOHData3 = SOHDatas3[key]
 
             figure1=go.Figure(
-                go.Scatter(
-                    x=x,
-                    y=SOHData1,
-                    mode='lines+markers',
-                    name='Cluster SOH Data',
-                    line=dict(color='blue'),
-                    marker=dict(color='blue'),
-                )
+                layout=go.Layout(
+                    xaxis=dict(title='Time(Years)'),
+                    yaxis=dict(title='SOH(%)'),
+                    title="State of Health against time"
+                ),
+                data=[
+                    go.Scatter(
+                        x=x,
+                        y=SOHData1,
+                        mode='lines+markers',
+                        name='Cluster SOH Data',
+                        line=dict(color='blue'),
+                        marker=dict(color='blue'),
+                    )
+                ]
             )
 
             figure1.add_trace(
@@ -58,14 +66,21 @@ class Plots:
             proFit3Data = proFit3Datas[key]
 
             figure2=go.Figure(
-                go.Scatter(
-                    x=x,
-                    y=proFit1Data,
-                    mode='lines+markers',
-                    name='Cluster Profit Model 1',
-                    line=dict(color='blue'),
-                    marker=dict(color='blue'),
-                )
+                layout=go.Layout(
+                    xaxis=dict(title='Time(Years)'),
+                    yaxis=dict(title='Profit($)'),
+                    title="Profit against time"
+                ),
+                data=[
+                    go.Scatter(
+                        x=x,
+                        y=proFit1Data,
+                        mode='lines+markers',
+                        name='Cluster Profit Model 1',
+                        line=dict(color='blue'),
+                        marker=dict(color='blue'),
+                    )
+                ]
             )
 
             figure2.add_trace(
@@ -107,8 +122,16 @@ class Plots:
         self.statistics.updateAverages()
         averageSOHData1 = self.statistics.averageSOH
         averageSOHData3 = self.statistics.averageSOH3
-        figure1 = go.Figure()
-        figure2 = go.Figure()
+        figure1 = go.Figure(layout=go.Layout(
+            xaxis=dict(title='Batteries'),
+            yaxis=dict(title='SOH(%)'),
+            title="Average Yearly State of Health Decrease"
+        ))
+        figure2 = go.Figure(layout=go.Layout(
+            xaxis=dict(title='Batteries'),
+            yaxis=dict(title='Profit($)'),
+            title="Average Yearly Profit"
+        ))
 
         x = [b.name for b in self.statistics.cluster.batteries]
 
@@ -169,27 +192,27 @@ class Plots:
 
         # Define the profit models
         profit_models = [
-            "Average Profit Model 1",
-            "Average Profit Model 2",
-            "Average Profit Single User",
+            "Average Yearly Profit (Model 1, $)",
+            "Average Yearly Profit (Model 2, $)",
+            "Average Yearly Profit (Single User, $)",
         ]
 
         # Create individual figures for Initial SOH vs. Average Profits
         for model in profit_models:
             fig = px.scatter(
                 df,
-                x="Initial SOH",
+                x="Initial SOH (%)",
                 y=model,
-                labels={"y": "Average Profit", "x": "Initial SOH"},
-                title=f"Initial SOH vs. {model}",
+                labels={"y": "Average Yearly Profit($)", "x": "Initial SOH(%)"},
+                title=f"Initial SOH (%) vs. {model}",
                 trendline="ols",  # Ordinary Least Squares regression for trend lines
             )
 
             # Customize the appearance
-            fig.update_traces(marker=dict(color="red" if model == "Average Profit Single User" else "blue"))
+            fig.update_traces(marker=dict(color="red" if model == "Average Yearly Profit (Single User, $)" else "blue"))
             fig.update_layout(
-                xaxis_title="Initial SOH",
-                yaxis_title="Average Profit",
+                xaxis_title="Initial SOH (%)",
+                yaxis_title="Average Yearly Profit ($)",
             )
 
             # Append the figure to the graph array
@@ -199,18 +222,18 @@ class Plots:
         for model in profit_models:
             fig = px.scatter(
                 df,
-                x="Starting Capacity",
+                x="Starting Capacity (kWh)",
                 y=model,
-                labels={"y": "Average Profit", "x": "Starting Capacity"},
+                labels={"y": "Average Yearly Profit($)", "x": "Starting Capacity(kWh)"},
                 title=f"Starting Capacity vs. {model}",
                 trendline="ols",  # Ordinary Least Squares regression for trend lines
             )
 
             # Customize the appearance
-            fig.update_traces(marker=dict(color="red" if model == "Average Profit Single User" else "blue"))
+            fig.update_traces(marker=dict(color="red" if model == "Average Yearly Profit (Single User, $)" else "blue"))
             fig.update_layout(
-                xaxis_title="Starting Capacity",
-                yaxis_title="Average Profit",
+                xaxis_title="Starting Capacity (kWh)",
+                yaxis_title="Average Yearly Profit($)",
             )
 
             # Append the figure to the graph array
@@ -218,14 +241,18 @@ class Plots:
 
 
 
-        figure5 = go.Figure()
-        averageSOHCluster = sum(df["Average Cluster SOH Decrease"])/len(df["Average Cluster SOH Decrease"])
-        averageSOHSingle = sum(df["Average Single User SOH Decrease"])/len(df["Average Single User SOH Decrease"])
+        figure5 = go.Figure( layout=go.Layout(
+            xaxis=dict(title='Model'),
+            yaxis=dict(title='Average Yearly SOH Decrease (%)'),
+            title="Average Yearly State of Health Decrease"
+        ))
+        averageSOHCluster = sum(df["Average Yearly Cluster SOH Decrease (%)"])/len(df["Average Yearly Cluster SOH Decrease (%)"])
+        averageSOHSingle = sum(df["Average Yearly Single User SOH Decrease (%)"])/len(df["Average Yearly Single User SOH Decrease (%)"])
         figure5.add_trace(
             go.Bar(
                 x=['Cluster'],
                 y=[averageSOHCluster],
-                name='Total Average Cluster SOH Decrease',
+                name='Total Average Yearly Cluster SOH Decrease',
                 marker_color='blue'
             )
         )
@@ -233,7 +260,7 @@ class Plots:
             go.Bar(
                 x=['Single User'],
                 y=[averageSOHSingle],
-                name='Total Average Single User SOH Decrease',                
+                name='Total Average Yearly Single User SOH Decrease',                
                 marker_color='red'
             )
         )
@@ -243,7 +270,17 @@ class Plots:
         graphsMap[i] = graph
 
         fileName = "SimulationData.xlsx"
-        df.to_excel(fileName)
+        df.to_excel(fileName, index=False)  # Write without the index column
+
+        # Adjust column widths
+        with pd.ExcelWriter(fileName, engine="openpyxl", mode="a") as writer:
+            workbook = writer.book
+            worksheet = workbook.active
+
+            for col_idx, col_name in enumerate(df.columns, start=1):  # Start from column index 1
+                # Set column width based on header length
+                column_width = max(len(str(col_name)), 10)  # Minimum width of 10 for readability
+                worksheet.column_dimensions[chr(64 + col_idx)].width = column_width
         
         return graphsMap
     

@@ -63,11 +63,11 @@ class battery():
             powerTransfer = 0
         return [powerTransfer, new_currentEnergy]
 
-    def can_transfer(self, energy, deltaT, decision):
-        [possible_transfer, new_currentEnergy] = self.calc_possible_powerTransfer(deltaT, decision)
-        if energy <= possible_transfer:
-            return True
-        return False
+    # def can_transfer(self, energy, deltaT, decision):
+    #     [possible_transfer, new_currentEnergy] = self.calc_possible_powerTransfer(deltaT, decision)
+    #     if energy <= possible_transfer:
+    #         return True
+    #     return False
     
     # cycle based degredation approximation
     # I am kind of ignoring depth of discharge here for simplicity
@@ -85,12 +85,16 @@ class battery():
         # it is critical that these are updated especially SOH and currentSOC
         self.capacity = self.capacity - degredation
         self.esitmatedSOH = self.capacity/self.originalCapacity
-        print("esitmatedSOH", self.esitmatedSOH)
         self.currentSOC = (self.currentEnergy/self.capacity) * 100
         self.capacity = self.originalCapacity * self.esitmatedSOH
         # between 85% to 20%
         self.maxEnergy = self.capacity * 0.85
         self.minEnergy = self.capacity * 0.2
+  
+    def weekend_calender_deg(self, days):
+        # 24 hours in a day
+        degredation = self.calender_degredation(24*days)
+        self.apply_deg(degredation)
     
     def add_profit_1(self, rate, decision, energy, deltaT):
         a = 1 if decision=="discharge" else -1
@@ -100,3 +104,8 @@ class battery():
     def add_profit_2(self, total_profit, total_cluster_capacity):
         profit2 = total_profit * (self.capacity/total_cluster_capacity)/100 # dollar
         self.profit2 += profit2
+
+    def add_profit_3(self, energy, rate, decision, deltaT):
+        a = 1 if decision=="discharge" else -1
+        profit = (a*rate*energy/deltaT)/100 # dollar
+        self.profit3 += profit

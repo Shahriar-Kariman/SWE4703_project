@@ -32,8 +32,8 @@ class StatisticsCluster:
             self.profit1Map[b.name].append(b.profit1)
             self.profit2Map[b.name].append(b.profit2)
 
-    def updateSingularStats(self, cluster):
-        for b in cluster.batteries:
+    def updateSingularStats(self, batteries):
+        for b in batteries:
             self.SOHMap3[b.name].append(b.esitmatedSOH)
             self.profit3Map[b.name].append(b.profit3)
 
@@ -41,9 +41,9 @@ class StatisticsCluster:
         for b in self.cluster.batteries:
             self.averageSOH.append((self.SOHMap[b.name][0] - self.SOHMap[b.name][-1])/len(self.SOHMap[b.name]))
             self.averageSOH3.append((self.SOHMap3[b.name][0] - self.SOHMap3[b.name][-1])/len(self.SOHMap3[b.name]))
-            self.averageProfit1.append(sum(self.profit1Map[b.name]) / len(self.profit1Map[b.name]))
-            self.averageProfit2.append(sum(self.profit2Map[b.name]) / len(self.profit2Map[b.name]))
-            self.averageProfit3.append(sum(self.profit3Map[b.name]) / len(self.profit3Map[b.name]))
+            self.averageProfit1.append((self.profit1Map[b.name][-1]) / len(self.profit1Map[b.name]))
+            self.averageProfit2.append((self.profit2Map[b.name][-1]) / len(self.profit2Map[b.name]))
+            self.averageProfit3.append((self.profit3Map[b.name][-1]) / len(self.profit3Map[b.name]))
 
     def getDfByBattery(self):
     # Create a list to hold rows
@@ -77,14 +77,14 @@ class StatisticsCluster:
             columns=[
                 "Name",
                 "ID",
-                "Original Capacity",
-                "Starting Capacity",
-                "Initial SOH",
-                "Average Profit Model 1",
-                "Average Profit Model 2",
-                "Average Profit Single User",
-                "Average Cluster SOH Decrease",
-                "Average Single User SOH Decrease",
+                "Original Capacity (kWh)",
+                "Starting Capacity (kWh)",
+                "Initial SOH (%)" ,
+                "Average Yearly Profit (Model 1, $)",
+                "Average Yearly Profit (Model 2, $)",
+                "Average Yearly Profit (Single User, $)",
+                "Average Yearly Cluster SOH Decrease (%)" ,
+                "Average Yearly Single User SOH Decrease (%)",
             ],
         )
 

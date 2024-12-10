@@ -32,9 +32,9 @@ class cluster():
       return
     # Essentially a greedy algorithm to just pick the batteries with the healthist batteries with the most amount of charge
     if decision == "discharge":
-      sorted_batteries = sorted(self.batteries, key=lambda b: (b.esitmatedSOH, b.currentSOC), reverse=True)
+      sorted_batteries = sorted(self.batteries, key=lambda b: (b.esitmatedSOH, b.currentEnergy), reverse=True)
     else:
-      sorted_batteries = sorted(self.batteries, key=lambda b: (b.esitmatedSOH, -1 * b.currentSOC), reverse=True)
+      sorted_batteries = sorted(self.batteries, key=lambda b: (-1 * b.currentEnergy, b.esitmatedSOH), reverse=True)
     remaining_energy = abs(delta_energy)
     total_energy_transfer = 0
     total_cluster_capacity = 0
