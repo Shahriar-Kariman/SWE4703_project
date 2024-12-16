@@ -8,6 +8,9 @@
 \usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
 
+\usepackage{makecell} % For wrapping text in cells
+
+\usepackage{graphicx} % For resizing the table
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -141,6 +144,28 @@ The entire simulation is implemented with object oriented programming principles
 \end{figure}
 
 At the end the simulation results are stored within the battery objects, analyzed using NumPy, and visualized with Plotly.
+
+\section{Simulation Results}
+
+Blah blah blah
+
+\subsection{Overall Cluster Analysis (Profitability and State of Health Dynamics)}
+
+Blah blah blah
+
+\begin{table}[htbp]
+\caption{Comparison of Models Based on Profits and SOH Decrease}
+\begin{center}
+\resizebox{0.5\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Models} & \textbf{Total Profits (\$)} & \textbf{\makecell{SOH Decrease (\%) }} & \textbf{\makecell{Average SOH (\%) }} \\ \hline
+Cluster Models & 76,847 & 55.6\% & 39.95\% \\ \hline
+Individual Arbitrage Model & 73,300 & 56.4\% & 40.33\% \\ \hline
+\end{tabular}
+}
+\end{center}
+\end{table}
 
 \section*{Acknowledgment}
 
