@@ -3,10 +3,11 @@
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
-\usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -17,60 +18,62 @@ should not be used}
 \thanks{Identify applicable funding agency here. If none, delete this.}
 }
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
+\author{\IEEEauthorblockN{1\textsuperscript{st} Shahriar Kariman }
 \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\textit{University of New Brunswick}\\
+Fredericton, Canada \\
+skariman@unb.ca}
 \and
-\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
+\IEEEauthorblockN{2\textsuperscript{nd} Promise Eskor Ononokpono}
 \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
+\textit{University of New Brunswick}\\
+Fredericton, Canada \\
 email address or ORCID}
 }
 
 \maketitle
 
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
-or Math in Paper Title or Abstract.
+Insert abstract here.
 \end{abstract}
 
 \begin{IEEEkeywords}
-component, formatting, style, styling, insert
+Put some Key words here.
 \end{IEEEkeywords}
 
 \section{Introduction}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
 
-\section{Ease of Use}
+With the global transition towards renewable energy and electric vehicles, the demand for lithium-ion batteries is on the rise \cite{b1}. While EV batteries will no longer be able to be used for transportation after reaching 70-80\% of their original battery capacity \cite{b2}. And because EV battery recycling is still very expensive, their reuse is considered to be a more lucrative option as such EV companies have begun to form partnerships with battery manufactures and recycling companies to develop a market around second-life batteries \cite{b3}.
+
+\section{Background}
+
+One of the key factors for a second-life business model is the battery ownership meaning who owns the batteries and decides on the management in the resulting second-life energy system. Currently in most businesses batteries are often obtained through inter-industry partnerships and with government support \cite{b4}.
+
+For a better understanding of the current industry methods with regards to acquiring batteries we looked at 3 successful companies utilizing second-life battery reuse to create a circular economy for batteries.
+
+\begin{table}[htbp]
+\caption{Examples of Businesses Utilizing  Second-life}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Company} & \textbf{Business Model} & \textbf{Based In} \\ \hline
+Zenobe & EV Manufacturing Company & London \\ \hline
+Modual & Battery Repurposing & Switzerland \\ \hline
+ECO STORE & Energy Storage Manufacturing Company & Norway \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+All 3 of these companies repurpose used batteries for different second-life applications but they differ in the means of acquiring them, from direct reuse of their own products to partnerships with recycling businesses and government support.
+
+\begin{itemize}
+  \item Zenobe reuses end of life batteries from their manufactured electric buses, trucks and commercial vehicles currently in operation \cite{b5}.
+  \item Modual purchases batteries and repurposes them for resale in home and business applications \cite{b6}. They also recently secured financing from Switzerland’s Technology Fund to help with their effort \cite{b7}.
+  \item ECO STORE acquires the second-life batteries it uses alongside their first-life batteries through their partnership with Morrow and Li-Cycle Holdings which is another battery recycling business \cite{b8, b9}.
+\end{itemize}
+
+
+% done till here
 
 \subsection{Maintaining the Integrity of the Specifications}
 
@@ -223,7 +226,8 @@ figures and tables after they are cited in the text. Use the abbreviation
 copy& More table copy$^{\mathrm{a}}$& &  \\
 \hline
 \multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-\end{tabular}
+\end{tabular}This document is a model and instructions for \LaTeX.
+Please observe the conference page limits. 
 \label{tab1}
 \end{center}
 \end{table}
@@ -246,43 +250,39 @@ quantities and units. For example, write ``Temperature (K)'', not
 
 \section*{Acknowledgment}
 
+% this is were we acknowldge that we both worked equally
+
 The preferred spelling of the word ``acknowledgment'' in America is without 
 an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
 G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
 acknowledgments in the unnumbered footnote on the first page.
 
-\section*{References}
-
-Please number citations consecutively within brackets \cite{b1}. The 
-sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
-number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
-the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
-
-Number footnotes separately in superscripts. Place the actual footnote at 
-the bottom of the column in which it was cited. Do not put footnotes in the 
-abstract or reference list. Use letters for table footnotes.
-
-Unless there are six authors or more give all authors' names; do not use 
-``et al.''. Papers that have not been published, even if they have been 
-submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
-that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
-Capitalize only the first word in a paper title, except for proper nouns and 
-element symbols.
-
-For papers published in translation journals, please give the English 
-citation first, followed by the original foreign-language citation \cite{b6}.
-
 \begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
+\bibitem{b1} Q. Hassan, P. Viktor, T. J. Al-Musawi, B. M. Ali, S. Algburi, H. M. Alzoubi, A. Khudhair Al-Jiboory, A. Z. Sameen, H. M. Salman, and M. Jaszczur, ``The renewable energy role in the global energy transformations,'' \textit{Renewable Energy Focus}, vol. 48, p. 100545, 2024. [Online]. Available: \href{https://www.sciencedirect.com/science/article/abs/pii/S1755008424000097?casa_token=bUNZr0M6nogAAAAA:BW6rOq1yhF3iUOtobThX-tDWVjZDpJL9Hzmk0HS78usaDj24Zq_MftqZLBkgYpIrtdgdilaX}{www.sciencedirect.com/science/article/abs/pii/S1755008424000097}.
+
+\bibitem{b2} A. Keeli and R. K. Sharma, ``Optimal use of second life battery for peak load management and improving the life of the battery,''  \textit{2012 IEEE International Electric Vehicle Conference}, Greenville, SC, USA, 2012, pp. 1--6. doi: \href{https://ieeexplore-ieee-org.proxy.hil.unb.ca/document/6183276}{ieeexplore-ieee-org.proxy.hil.unb.ca/document/6183276}.
+
+
+\bibitem{b3} Y. Zhao, O. Pohl, A. I. Bhatt, G. E. Collis, P. J. Mahon, T. Rüther, and A. F. Hollenkamp, ``A review on battery market trends, second-life reuse, and recycling,'' \textit{Sustainable Chemistry}, vol. 2, no. 1, pp. 167--205, 2021. doi: \href{https://www.mdpi.com/2673-4079/2/1/11}{www.mdpi.com/2673-4079/2/1/11}.
+
+\bibitem{b4} N. Jiao and S. Evans, ``Business models for sustainability: The case of second-life electric vehicle batteries,'' \textit{Procedia CIRP}, vol. 40, pp. 250--255, 2016. [Online]. Available: \href{https://www.sciencedirect.com/science/article/pii/S2212827116001293}{www.sciencedirect.com/science/article/pii/S2212827116001293}.
+
+\bibitem{b5} Zenobe Energy [Online]. Available: \href{https://www.zenobe.com/our-story/}{www.zenobe.com/our-story/}. [Accessed: Dec. 2024].
+
+\bibitem{b6} Modual, Modual Series Lite [Online]. Available: \href{https://modual.ch/series-lite/}{modual.ch/series-lite/}. [Accessed: Dec. 2024].
+
+\bibitem{b7} Modual, Technology Fund PR [Online]. Available: \href{https://modual.ch/technology-fund-pr/}{modual.ch/technology-fund-pr/}. [Accessed: Dec. 2024].
+
+\bibitem{b8} ECO STOR, Partners [Online]. Available: \href{https://www.eco-stor.com/partners}{www.eco-stor.com/partners}. [Accessed: Dec. 2024].
+
+\bibitem{b9} Li-Cycle and Strategic Partners to Build New Lithium-ion Battery Recycling Facility in Norway, Li-Cycle, Jan. 26, 2022. [Online]. Available: \href{https://investors.li-cycle.com/news/news-details/2022/Li-Cycle--Strategic-Partners-to-Build-New-Lithium-ion-Battery-Recycling-Facility-in-Norway/default.aspx}{https://investors.li-cycle.com/news/news-details/2022/Li-Cycle--Strategic-Partners-to-Build-New-Lithium-ion-Battery-Recycling-Facility-in-Norway/default.aspx}. [Accessed: Dec. 14, 2024].
+
+\bibitem{b10} H. Khani and H. E. Z. Farag, ``Joint Arbitrage and Operating Reserve Scheduling of Energy Storage Through Optimal Adaptive Allocation of the State of Charge,'' \textit{IEEE Trans. Sustainable Energy}, vol. 10, no. 4, pp. 1705--1717, Oct. 2019, doi: \href{https://ieeexplore.ieee.org/document/8463591}{ieeexplore.ieee.org/document/8463591}.
+
+\bibitem{b11}
+Ontario Energy Board, ``Electricity rates,'' [Online]. Available: \href{https://www.oeb.ca/consumer-information-and-protection/electricity-rates}{www.oeb.ca/consumer-information-and-protection/electricity-rates}. [Accessed: Dec. 12, 2024].
+
+
 \end{thebibliography}
-\vspace{12pt}
-\color{red}
-IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
 
 \end{document}
