@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  15 DEC 2024 21:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  15 DEC 2024 21:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,25 +438,24 @@ LaTeX Info: Redefining \nameref on input line 13.
 \@outlinefile=\write3
 \openout3 = `conference_paper.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 32.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 35.
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-30.
+27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
@@ -464,80 +463,80 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 <fig1.png, id=102, 82.1469pt x 71.5473pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 236.
+Package pdftex.def Info: fig1.png  used on input line 233.
 (pdftex.def)             Requested size: 82.14668pt x 71.5471pt.
 LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 2
-47.
+44.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 247.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 244.
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
 []\OT1/ptm/m/n/8 Q. Has-san, P. Vik-tor, T. J. Al-Musawi, B. M. Ali, S.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
 \OT1/ptm/m/n/8 Al-gburi, H. M. Al-zoubi, A. Khud-hair Al-Jiboory, A. Z.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
 \OT1/ptm/m/n/8 Sameen, H. M. Salman, and M. Jaszczur, ``The re-new-able
  []
 
 
-Underfull \hbox (badness 5622) in paragraph at lines 261--262
+Underfull \hbox (badness 5622) in paragraph at lines 258--259
 \OT1/ptm/m/n/8 en-ergy role in the global en-ergy trans-for-ma-tions,'' \OT1/pt
 m/m/it/8 Re-new-able
  []
 
 
-Underfull \hbox (badness 4454) in paragraph at lines 261--262
+Underfull \hbox (badness 4454) in paragraph at lines 258--259
 \OT1/ptm/m/it/8 En-ergy Fo-cus\OT1/ptm/m/n/8 , vol. 48, p. 100545, 2024. [On-li
 ne]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
 []\OT1/ptm/m/n/8 N. Jiao and S. Evans, ``Busi-ness mod-els for sus-tain-abil-it
 y:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
 \OT1/ptm/m/n/8 The case of second-life elec-tric ve-hi-cle bat-ter-ies,'' \OT1/
 ptm/m/it/8 Pro-ce-dia
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
 \OT1/ptm/m/it/8 CIRP\OT1/ptm/m/n/8 , vol. 40, pp. 250--255, 2016. [On-line]. Av
 ail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--275
+Underfull \hbox (badness 10000) in paragraph at lines 271--272
 []\OT1/ptm/m/n/8 Modual, Tech-nol-ogy Fund PR [On-line]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 278--279
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
 \OT1/ptm/m/n/8 Avail-able: []https://investors.li-cycle.com/news/news-details/2
 022/Li-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 278--279
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
 \OT1/ptm/m/n/8 Cycle--Strategic-Partners-to-Build-New-Lithium-ion-Battery-Recyc
 ling-
  []
 
 
-Underfull \hbox (badness 6725) in paragraph at lines 283--284
+Underfull \hbox (badness 6725) in paragraph at lines 280--281
 []\OT1/ptm/m/n/8 Ontario En-ergy Board, ``Elec-tric-ity rates,'' [On-line]. Ava
 il-able:
  []
@@ -554,41 +553,32 @@ Before submitting the final camera ready copy, remember to:
  process uses the appropriate paper size.
 
 [3 <./fig1.png (PNG copy)>] (./conference_paper.aux)
-
-Package rerunfilecheck Warning: File `conference_paper.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `conference_paper.out':
-(rerunfilecheck)             Before: A07C2EDD226D53B62E0FBC45BE53224F;2030
-(rerunfilecheck)             After:  9101F02340447DF6E5319E9761BEC8CF;2030.
+Package rerunfilecheck Info: File `conference_paper.out' has not changed.
+(rerunfilecheck)             Checksum: 9101F02340447DF6E5319E9761BEC8CF;2030.
  ) 
 Here is how much of TeX's memory you used:
- 10887 strings out of 480247
- 169915 string characters out of 5896151
- 476910 words of memory out of 5000000
+ 10886 strings out of 480247
+ 169905 string characters out of 5896151
+ 477910 words of memory out of 5000000
  28648 multiletter control sequences out of 15000+600000
  518329 words of font info for 122 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,11n,63p,597b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section*.3} has been referenced but does not exis
-t, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf
--dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/urw/times/utmri8a.pfb>
-Output written on conference_paper.pdf (3 pages, 141327 bytes).
+ 60i,11n,63p,597b,411s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/urw/times/utmri8a.pfb>
+Output written on conference_paper.pdf (3 pages, 141210 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
+ 185 PDF objects out of 1000 (max. 8388607)
+ 155 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 500000)
  110 words of extra memory for PDF output out of 10000 (max. 10000000)
 
