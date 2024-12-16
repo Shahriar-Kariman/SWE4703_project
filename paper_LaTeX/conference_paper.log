@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  15 DEC 2024 23:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  16 DEC 2024 00:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -375,24 +375,24 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 (./conference_paper.aux)
 \openout1 = `conference_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 -- Lines per column: 56 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -417,7 +417,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 13.
+Package hyperref Info: Link coloring OFF on input line 14.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -430,22 +430,22 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count295
 )
-LaTeX Info: Redefining \ref on input line 13.
-LaTeX Info: Redefining \pageref on input line 13.
-LaTeX Info: Redefining \nameref on input line 13.
+LaTeX Info: Redefining \ref on input line 14.
+LaTeX Info: Redefining \pageref on input line 14.
+LaTeX Info: Redefining \nameref on input line 14.
 
 (./conference_paper.out) (./conference_paper.out)
 \@outlinefile=\write3
 \openout3 = `conference_paper.out'.
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 32.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 33.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -454,89 +454,83 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-33.
+<img/class_diagram.png, id=58, 679.53876pt x 910.40125pt>
+File: img/class_diagram.png Graphic file (type png)
+<use img/class_diagram.png>
+Package pdftex.def Info: img/class_diagram.png  used on input line 138.
+(pdftex.def)             Requested size: 258.0pt x 345.65045pt.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [2]
-<fig1.png, id=104, 82.1469pt x 71.5473pt>
-File: fig1.png Graphic file (type png)
-<use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 239.
-(pdftex.def)             Requested size: 82.14668pt x 71.5471pt.
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 2
-50.
+Overfull \hbox (6.0pt too wide) in paragraph at lines 138--139
+ [][] 
+ []
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 250.
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 []\OT1/ptm/m/n/8 Q. Has-san, P. Vik-tor, T. J. Al-Musawi, B. M. Ali, S.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 \OT1/ptm/m/n/8 Al-gburi, H. M. Al-zoubi, A. Khud-hair Al-Jiboory, A. Z.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 \OT1/ptm/m/n/8 Sameen, H. M. Salman, and M. Jaszczur, ``The re-new-able
  []
 
 
-Underfull \hbox (badness 5622) in paragraph at lines 264--265
+Underfull \hbox (badness 5622) in paragraph at lines 155--156
 \OT1/ptm/m/n/8 en-ergy role in the global en-ergy trans-for-ma-tions,'' \OT1/pt
 m/m/it/8 Re-new-able
  []
 
 
-Underfull \hbox (badness 4454) in paragraph at lines 264--265
+Underfull \hbox (badness 4454) in paragraph at lines 155--156
 \OT1/ptm/m/it/8 En-ergy Fo-cus\OT1/ptm/m/n/8 , vol. 48, p. 100545, 2024. [On-li
 ne]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 []\OT1/ptm/m/n/8 N. Jiao and S. Evans, ``Busi-ness mod-els for sus-tain-abil-it
 y:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 \OT1/ptm/m/n/8 The case of second-life elec-tric ve-hi-cle bat-ter-ies,'' \OT1/
 ptm/m/it/8 Pro-ce-dia
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 \OT1/ptm/m/it/8 CIRP\OT1/ptm/m/n/8 , vol. 40, pp. 250--255, 2016. [On-line]. Av
 ail-able:
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 277--278
+[2 <./img/class_diagram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 []\OT1/ptm/m/n/8 Modual, Tech-nol-ogy Fund PR [On-line]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--282
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 \OT1/ptm/m/n/8 Avail-able: []https://investors.li-cycle.com/news/news-details/2
 022/Li-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--282
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 \OT1/ptm/m/n/8 Cycle--Strategic-Partners-to-Build-New-Lithium-ion-Battery-Recyc
 ling-
  []
 
 
-Underfull \hbox (badness 6725) in paragraph at lines 286--287
+Underfull \hbox (badness 6725) in paragraph at lines 177--178
 []\OT1/ptm/m/n/8 Ontario En-ergy Board, ``Elec-tric-ity rates,'' [On-line]. Ava
 il-able:
  []
@@ -552,33 +546,34 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3 <./fig1.png (PNG copy)>] (./conference_paper.aux)
+[3
+
+] (./conference_paper.aux)
 Package rerunfilecheck Info: File `conference_paper.out' has not changed.
-(rerunfilecheck)             Checksum: EB8A4C21B6B1D7824EB842867E5CF604;1863.
+(rerunfilecheck)             Checksum: 6ED0B5F3D0571B2B159973A0BE5573CC;561.
  ) 
 Here is how much of TeX's memory you used:
- 10888 strings out of 480247
- 169917 string characters out of 5896151
- 477910 words of memory out of 5000000
- 28648 multiletter control sequences out of 15000+600000
- 518329 words of font info for 122 fonts, out of 8000000 for 9000
+ 10809 strings out of 480247
+ 168911 string characters out of 5896151
+ 477721 words of memory out of 5000000
+ 28588 multiletter control sequences out of 15000+600000
+ 511812 words of font info for 114 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,11n,63p,597b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,11n,63p,597b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8
-a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/times/utmri8a.pfb>
-Output written on conference_paper.pdf (3 pages, 141936 bytes).
+f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on conference_paper.pdf (3 pages, 188877 bytes).
 PDF statistics:
- 187 PDF objects out of 1000 (max. 8388607)
- 157 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 110 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 147 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
