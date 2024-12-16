@@ -1,8 +1,9 @@
 import pandas as pd
 
 class StatisticsCluster:
-    def __init__(self, cluster):
+    def __init__(self, cluster, batteries):
         self.cluster = cluster
+        self.batteries = batteries
 
         # Per year stats for all batteries
         self.SOHMap = {}
@@ -32,8 +33,8 @@ class StatisticsCluster:
             self.profit1Map[b.name].append(b.profit1)
             self.profit2Map[b.name].append(b.profit2)
 
-    def updateSingularStats(self, batteries):
-        for b in batteries:
+    def updateSingularStats(self):
+        for b in self.batteries:
             self.SOHMap3[b.name].append(b.esitmatedSOH)
             self.profit3Map[b.name].append(b.profit3)
 
@@ -64,6 +65,8 @@ class StatisticsCluster:
                 b.originalCapacity,
                 b.originalCapacity * b.initialSOH,
                 b.initialSOH,
+                b.esitmatedSOH,
+                self.batteries[i].esitmatedSOH,
                 averageProfit1Data[i],
                 averageProfit2Data[i],
                 averageProfit3Data[i],
@@ -80,6 +83,8 @@ class StatisticsCluster:
                 "Original Capacity (kWh)",
                 "Starting Capacity (kWh)",
                 "Initial SOH (%)" ,
+                "Final SOH (Cluster, %)" ,
+                "Final SOH (Single User, %)" ,
                 "Average Yearly Profit (Model 1, $)",
                 "Average Yearly Profit (Model 2, $)",
                 "Average Yearly Profit (Single User, $)",
