@@ -1,3 +1,5 @@
+A Project to simiulate an cluster charging system in order to make predictions concerning potential profits over 10 years when using second life EV batteries for arbitrage
+
 Install all the neccessary libraries.
 plotly
 dash
